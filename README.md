@@ -1,7 +1,7 @@
 
 [spring-boot-starter-dubbo demo](https://github.com/teaey/spring-boot-starter-dubbo)
 
-prerequisite:
+prerequisite:   
 run zookeeper-3.4.9
 use default port 2181
 
