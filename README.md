@@ -9,28 +9,27 @@ use default port 2181
 [监控与管理dubbo服务](http://qinghua.github.io/dubbo-3/)       
 [dubbokeeper是一个开源版本基于spring mvc开发的社区版dubboadmin](https://github.com/dubboclub/dubbokeeper)     
 
-git clone https://github.com/dubboclub/dubbokeeper.git
-cd dubbokeeper
-mvn clean install -Dmaven.test.skip
-copy  dubbokeeper-ui/target/dubbokeeper-ui-1.0.1.war  to apache-tomcat-9.0.0.M21\webapps(deploy to tomcat)
-
-start zookeeper with default port(2181)
-start mysql :jdbc:mysql://localhost:3306
-CREATE DATABASE `dubbokeeper`  DEFAULT CHARACTER SET utf8mb4;
-DROP TABLE IF EXISTS `application`;
-CREATE TABLE `application` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+git clone https://github.com/dubboclub/dubbokeeper.git   
+cd dubbokeeper   
+mvn clean install -Dmaven.test.skip    
+copy  dubbokeeper-ui/target/dubbokeeper-ui-1.0.1.war  to apache-tomcat-9.0.0.M21\webapps(deploy to tomcat)      
+   
+start zookeeper with default port(2181)   
+start mysql :jdbc:mysql://localhost:3306    
+```sql
+CREATE DATABASE `dubbokeeper`  DEFAULT CHARACTER SET utf8mb4;  
+DROP TABLE IF EXISTS `application`;  
+CREATE TABLE `application` (  
+  `id` int(11) NOT NULL AUTO_INCREMENT,  
   `name` varchar(100) NOT NULL DEFAULT '',
   `type` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
 start tomcat
 
-
-
-
-
+```text
 分包
 建议将服务接口，服务模型，服务异常等均放在API包中，因为服务模型及异常也是API的一部分，
 同时，这样做也符合分包原则：重用发布等价原则(REP)，共同重用原则(CRP)
@@ -64,6 +63,7 @@ start tomcat
 调用
 不要只是因为是Dubbo调用，而把调用Try-Catch起来。Try-Catch应该加上合适的回滚边界上。
 对于输入参数的校验逻辑在Provider端要有。如有性能上的考虑，服务实现者可以考虑在API包上加上服务Stub类来完成检验。
+```
 
 [用户指南](http://dubbo.io/User+Guide-zh.htm#UserGuide-zh-%E5%85%A5%E9%97%A8)
 
