@@ -7,6 +7,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class AbcService {
-    @Reference(version = Version.V_1_0_0)
+    @Reference(version = Version.V_1_0)
     public CityDubboService cityDubboService;
 }

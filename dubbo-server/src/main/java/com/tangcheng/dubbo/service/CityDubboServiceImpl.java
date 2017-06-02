@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 /**
  * Created by tang.cheng on 2017/6/1.
  */
-@Service(version = Version.V_1_0_0)
+@Service(version = Version.V_1_0)
 public class CityDubboServiceImpl implements CityDubboService {
 
     @Value("${random.value:NanYang}")
